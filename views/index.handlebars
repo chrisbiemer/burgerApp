@@ -1,0 +1,64 @@
+<style>
+	body {
+		background-color: teal;
+		color: lavender;
+		font-family: arial;
+	}
+	#viewwindow {
+		text-align: center;
+		height: 100%;
+		width: 100%;
+	}
+	.div .devoured {
+		float: left;
+	}
+	#burgername {
+		width: 20%;
+	}
+	p {
+		letter-spacing: 3px;
+		color: lavender;
+		font-size: 8px;
+
+	}
+</style>
+
+<div id="viewwindow">
+	<img src="https://gaehho.files.wordpress.com/2013/12/happy-burger.png" height="200px" width="200px" alt="happyburger">
+	<h1>h a p p y  b u r g e r</h1>
+	<div class="row">
+		<div class="ready">
+				{{#each burgers}}
+					{{#unless this.devoured}}
+						<div>
+							{{this.burger_name}}
+							<form action="/" method="PUT">
+	          				<button type="submit">n o m  n o m !</button>
+	       					</form>
+	       				</div>
+	       			{{/unless}}
+	       		{{/each}}
+		</div>
+		<div class="devoured">
+				{{#each burgers}}
+					{{#if this.devoured}}
+						{{this.burger_name}}
+	       			{{/if}}
+	       		{{/each}}
+		</div>
+		
+	</div>
+	<form class="create-update-form" action="/" method="POST">
+
+	  <div class="form-group">
+	    <input type="text" id="burgername" name="burger_name">
+	  </div>
+
+	  <button type="submit">s u b m i t !</button>
+  
+	</form>
+	
+	<p>We have any burger your stomach can imagine.</p>
+	<p>Enter your order and click submit</p>
+</div>
+
