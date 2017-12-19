@@ -9,8 +9,18 @@
 		height: 100%;
 		width: 100%;
 	}
-	.div .devoured {
+	.row {
+		text-align: center;
+	}
+	.ready, .devoured {
+		text-align: center;
+		background-color: maroon;
+		margin: 25px;
+		width: 200px;
 		float: left;
+	}
+	#formcapt {
+		clear: both;
 	}
 	#burgername {
 		width: 20%;
@@ -27,38 +37,46 @@
 	<img src="https://gaehho.files.wordpress.com/2013/12/happy-burger.png" height="200px" width="200px" alt="happyburger">
 	<h1>h a p p y  b u r g e r</h1>
 	<div class="row">
-		<div class="ready">
+		<div class="ready"> r e a d y
+			<div>
+			<hr>
 				{{#each burgers}}
 					{{#unless this.devoured}}
 						<div>
 							{{this.burger_name}}
-							<form action="/" method="PUT">
+							<form action="/{{this.id}}?_method=PUT" method="POST">
 	          				<button type="submit">n o m  n o m !</button>
 	       					</form>
 	       				</div>
 	       			{{/unless}}
 	       		{{/each}}
+	       	</div>
 		</div>
-		<div class="devoured">
+		<div class="devoured"> d o n e
+			<div>
+			<hr>
 				{{#each burgers}}
 					{{#if this.devoured}}
 						{{this.burger_name}}
 	       			{{/if}}
 	       		{{/each}}
+	       	</div>
 		</div>
 		
 	</div>
-	<form class="create-update-form" action="/" method="POST">
+	<div id="formcapt">
+		<form class="create-update-form" action="/" method="POST">
 
-	  <div class="form-group">
-	    <input type="text" id="burgername" name="burger_name">
-	  </div>
+		  <div class="form-group">
+		    <input type="text" id="burgername" name="burger_name">
+		  </div>
 
-	  <button type="submit">s u b m i t !</button>
-  
-	</form>
-	
-	<p>We have any burger your stomach can imagine.</p>
-	<p>Enter your order and click submit</p>
+		  <button type="submit">s u b m i t !</button>
+	  
+		</form>
+		
+		<p>We have any burger your stomach can imagine.</p>
+		<p>Enter your order and click submit</p>
+	</div>
 </div>
 
