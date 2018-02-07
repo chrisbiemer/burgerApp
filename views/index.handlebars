@@ -4,20 +4,34 @@
 		color: lavender;
 		font-family: arial;
 	}
+	img {
+		margin-top: 25px;
+	}
 	#viewwindow {
 		text-align: center;
 		height: 100%;
 		width: 100%;
 	}
-	.row {
-		text-align: center;
-	}
-	.ready, .devoured {
+	.ready {
 		text-align: center;
 		background-color: maroon;
-		margin: 25px;
+		padding-top: 8px;
+		margin: 40px;
 		width: 200px;
 		float: left;
+	}
+	.devoured {
+		text-align: center;
+		background-color: maroon;
+		padding-top: 8px;
+		margin: 40px;
+		width: 200px;
+		float: left;
+	}
+	.row {
+		width: 45%;
+		margin: 0 auto;
+
 	}
 	#formcapt {
 		clear: both;
@@ -29,15 +43,18 @@
 		letter-spacing: 3px;
 		color: lavender;
 		font-size: 8px;
-
 	}
+	button {
+		color: black;
+	}
+
 </style>
 
 <div id="viewwindow">
 	<img src="https://gaehho.files.wordpress.com/2013/12/happy-burger.png" height="200px" width="200px" alt="happyburger">
 	<h1>h a p p y  b u r g e r</h1>
-	<div class="row">
-		<div class="ready"> r e a d y
+	<div class="row text-center">
+		<div class="ready text-center"> r e a d y
 			<div>
 			<hr>
 				{{#each burgers}}
@@ -47,17 +64,19 @@
 							<form action="/{{this.id}}?_method=PUT" method="POST">
 	          				<button type="submit">n o m  n o m !</button>
 	       					</form>
+	       					<p>  </p>
 	       				</div>
 	       			{{/unless}}
 	       		{{/each}}
 	       	</div>
 		</div>
-		<div class="devoured"> d o n e
+		<div class="devoured text-center"> d o n e
 			<div>
 			<hr>
 				{{#each burgers}}
 					{{#if this.devoured}}
 						{{this.burger_name}}
+						<p> o </p>
 	       			{{/if}}
 	       		{{/each}}
 	       	</div>
@@ -74,9 +93,11 @@
 		  <button type="submit">s u b m i t !</button>
 	  
 		</form>
-		
+		<p> <p>
+		<p> o o o <p>
 		<p>We have any burger your stomach can imagine.</p>
 		<p>Enter your order and click submit</p>
+		<p> ~ <p>
 	</div>
 </div>
 

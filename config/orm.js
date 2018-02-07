@@ -62,7 +62,6 @@ var orm = {
     queryString += " SET ";
     queryString += "devoured = 1";
     queryString += " WHERE ";
-    queryString += "id ="
     queryString += condition;
 
     console.log(queryString);
